@@ -55,6 +55,16 @@ angular.module('shwop.services', [])
     });
   };
 
+  var getUserProducts = function (token) {
+    return $http({
+          method: 'POST',
+          url: '/api/products/mystore',
+          data: {
+            token: token
+          }
+    });
+  };
+
   var categories = [
     {id: '1', name: 'Antiques'},
     {id: '2', name: 'Appliances'},
@@ -106,6 +116,7 @@ angular.module('shwop.services', [])
     sendBid: sendBid,
     products: products,
     getProductsByTag: getProductsByTag,
+    getUserProducts: getUserProducts,
     categories: categories
   };
 

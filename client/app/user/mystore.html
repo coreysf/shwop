@@ -1,0 +1,22 @@
+  <!-- TODO: (1) Research photo file path validation  -->
+
+<div class='scrollable-header'>
+  <nav class='navbar navbar-app navbar-relative-top'>
+    <div class="navbar-header">
+      <strong class="navbar-brand title">Shwop</strong>
+      <div class='btn-group pull-right collapsible'>
+        <a href='#/products' class='btn btn-navbar'>All Products</a>
+        <a href='#/sell' class='btn btn-navbar'>Sell Item</a>
+        <a href='#/mystore' class='btn btn-navbar'>My Store</a>
+        <a ng-click='signout()' class='btn btn-navbar'>Logout</a>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<h1>My Store</h1>
+<div ng-repeat='product in data.products'>
+  <div>Name: {{ product.name}} </div>
+  <div><img ng-src='{{ product.photoURL }}' class='product-image'></div>
+</div>
+

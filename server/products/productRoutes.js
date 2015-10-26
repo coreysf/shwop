@@ -29,4 +29,6 @@ module.exports = function (app) {
   });
 
   app.get('/:tags', userController.checkAuth, productController.productsByTags);
+
+  app.post('/mystore', userController.checkAuth, productController.userProducts);
 };

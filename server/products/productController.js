@@ -113,7 +113,43 @@ module.exports = {
     })
     .catch(function (error) {
       res.status(400).send('Error deleting the product in the database: ', error);
-    }) 
+    })
+  },
+
+  // get all products the user is selling
+  userProducts: function (req, res, next) {
+    var token = req.body.token;
+    if (!token) {
+      next(new Error('No token'));
+    } else {
+      var user = jwt.decode(token, 'secret');
+      db.User.findOne({where: {email: user.email}})
+      .then(function (foundUser) {
+        if (foundUser) {
+          console.log('Found user is: ', foundUser.email);
+          db.Product.findAll({where: { UserId: foundUser.id }})
+          .then(function (foundProducts) {
+            var productsArray = [];
+            for (var i = 0; i < foundProducts.length; i++) {
+              // console.log('foundProducts is', foundProducts);
+              // console.log('foundProducts.dataValues is', foundProducts.dataValues);
+              console.log('foundProduct is', foundProducts[i].dataValues);
+              productsArray.push(foundProducts[i].dataValues);
+            }
+            console.log('productsArray is', productsArray);
+            res.send({products: productsArray});
+          })
+          .catch(function (err) {
+            res.send(401, 'Error finding products');
+          });
+        } else {
+          res.send(401,'corrupted token');
+        }
+      })
+      .catch(function (error) {
+        next(error);
+      });
+    }
   }
 
 };

@@ -44,6 +44,12 @@ angular.module('shwop', [
       controller: 'BidController',
       css: '../styles/style.css',
       authenticate: true
+    })
+    .when('/mystore', {
+      templateUrl: 'app/user/mystore.html',
+      controller: 'UserController',
+      css: '../styles/style.css',
+      authenticate: true
     });
     // .when('/products:items', {        // TODO: Syntax for filtered items
     //   templateUrl: 'app/products/products.html',

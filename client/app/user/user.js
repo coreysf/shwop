@@ -37,6 +37,6 @@ angular.module('shwop.user', [])
     });
   };
 
-  // $scope.getUserProducts();
+  $scope.getUserProducts();
   $scope.getUserInfo();
 }]);

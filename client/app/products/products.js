@@ -24,7 +24,25 @@ angular.module('shwop.products', [])
     }
   };
 
+  // var arrowSwiper = function(e){
+  //     if(e.keyCode === 37) {
+  //       carousel.reject();
+  //     } else if (e.keyCode === 39) {
+  //       console.log("got here!");
+  //       Products.bid();
+  //     }      
+  // };
+
+  // var $doc = angular.element(document);
+
+  // $doc.on('keydown', arrowSwiper);
+  // $scope.$on('$destroy',function(){
+  //   $doc.off('keydown', arrowSwiper);
+  // });
+
   $scope.data = {};
+
+
 
   // Calls factory method that returns all product info from DB and renders it.
   $scope.getAllProducts = function () {
@@ -179,6 +197,24 @@ angular.module('shwop.products', [])
     }
   };
 }])
+
+// .directive('ngArrows', function () {
+  // var arrowSwiper = function(e){
+  //     if(e.keyCode === 37) {
+  //       carousel.reject();
+  //     } else if (e.keyCode === 39) {
+  //       console.log("got here!");
+  //       Products.bid();
+  //     }      
+  // };
+
+  // var $doc = angular.element(document);
+
+  // $doc.on('keydown', arrowSwiper);
+  // $scope.$on('$destroy',function(){
+  //   $doc.off('keydown', arrowSwiper);
+  // });
+})
 
 .directive('dragMe', ['$drag', function ($drag){
   return {

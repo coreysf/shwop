@@ -214,7 +214,7 @@ angular.module('shwop.products', [])
   // $scope.$on('$destroy',function(){
   //   $doc.off('keydown', arrowSwiper);
   // });
-})
+// })
 
 .directive('dragMe', ['$drag', function ($drag){
   return {

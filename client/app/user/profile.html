@@ -8,14 +8,22 @@
         <a href='#/products' class='btn btn-navbar'>All Products</a>
         <a href='#/sell' class='btn btn-navbar'>Sell Item</a>
         <a href='#/mystore' class='btn btn-navbar'>My Store</a>
+        <a href='#/profile' class='btn btn-navbar'>Profile</a>
         <a ng-click='signout()' class='btn btn-navbar'>Logout</a>
       </div>
     </div>
   </nav>
 </div>
 
-<h1>My Store</h1>
-<div ng-repeat='product in data.products'>
-  <div>Name: {{ product.name}} </div>
-  <div><img ng-src='{{ product.photoURL }}'></div>
+<h1>User Profile</h1>
+<div>
+  <form novalidate class="simple-form">
+    First Name: <input type="text" ng-model='data.user.firstName' /><br />
+    Last Name: <input type="text" ng-model="data.user.lastName" /><br />
+    Email: <input type="email" ng-model="data.user.email" /><br />
+    Phone: <input type="text" ng-model="data.user.phoneNumber" /><br />
+    Longitude: <input type="text" ng-model="data.user.longitude" /><br />
+    Latitude: <input type="text" ng-model="data.user.latitude" /><br />
+    <input type="submit" ng-click="" value="Save" />
+  </form>
 </div>

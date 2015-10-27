@@ -89,4 +89,14 @@ li .menu {
 .valid-cat {
   color: black; }
 
+.store-product {
+  float: left;
+  padding: 5px;
+}
+
+.store-product-image {
+  height: 200px;
+  width: 200px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,8 +1,7 @@
 angular.module('shwop.user', [])
 
 
-.controller('UserController', ['$scope', '$window', 'Products', 'Auth', function ($scope, $window, Products, Auth) {
-  $scope.categories = Products.categories;
+.controller('UserController', ['$scope', '$window', 'Products', 'Users', 'Auth', function ($scope, $window, Products, Users, Auth) {
   $scope.data = {};
 
   $scope.signout = function() {
@@ -13,17 +12,31 @@ angular.module('shwop.user', [])
   $scope.getUserProducts = function () {
     //get the token
     var token = $window.localStorage.getItem('com.shwop');
-    console.log('The token is', token);
     Products.getUserProducts(token)
     .then(function (myProducts) {
-      console.log('myProducts are', myProducts);
       $scope.data.products = myProducts.data.products;
-      console.log($scope.data);
     })
     .catch(function (err) {
         console.log('/api/products/mystore POST failed', err);
     });
   };
 
-  $scope.getUserProducts();
+// Calls factory mehtod that returns the user's information
+  $scope.getUserInfo = function () {
+    //get the token
+    var token = $window.localStorage.getItem('com.shwop');
+    console.log('token is', token);
+    Users.getUserInfo(token)
+    .then(function (user) {
+      console.log('user is ', user);
+      $scope.data.user = user.data.userInfo;
+      console.log('$scope.data.user is', $scope.data.user);
+    })
+    .catch(function (err) {
+        console.log('/api/users/profile POST failed', err);
+    });
+  };
+
+  // $scope.getUserProducts();
+  $scope.getUserInfo();
 }]);

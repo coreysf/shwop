@@ -129,6 +129,14 @@ angular.module('shwop.services', [])
     });
   };
 
+  var getUserInfo = function(token) {
+    return $http({
+      method: 'POST',
+      url: '/api/users/profile',
+      data: {token: token}
+    });
+  };
+
   var addUser = function(user) {
     return $http({
       method: 'POST',
@@ -139,6 +147,7 @@ angular.module('shwop.services', [])
 
   return {
     getUsers: getUsers,
+    getUserInfo: getUserInfo,
     addUser: addUser
   };
 }])

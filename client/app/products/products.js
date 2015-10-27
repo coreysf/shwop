@@ -2,7 +2,7 @@ angular.module('shwop.products', [])
 
 
 .controller('ProductController', ['$scope', 'Products', 'Auth', function ($scope, Products, Auth) {
-  $scope.categories = Products.categories
+  $scope.categories = Products.categories;
 
   $scope.signout = function() {
     Auth.signout();

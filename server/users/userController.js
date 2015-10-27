@@ -84,5 +84,29 @@ module.exports = {
         res.status(500).send('get outta here');
       });
     }
+  },
+
+  userInfo: function (req, res, next) {
+    var user = jwt.decode(req.body.token, 'secret');
+    db.User.findOne({
+      where: { id: user.id }
+    })
+    .then( function (foundUser) {
+      if (!foundUser) {
+        next(new Error('User does not exist!'));
+      } else {
+        var userInfo = {};
+        userInfo.firstName = foundUser.firstName;
+        userInfo.lastName = foundUser.lastName;
+        userInfo.phoneNumber = foundUser.phoneNumber;
+        userInfo.email = foundUser.email;
+        userInfo.latitude = foundUser.latitude;
+        userInfo.longitude = foundUser.longitude;
+        res.send({ userInfo: userInfo });
+      }
+    })
+    .catch(function (error) {
+      next(error);
+    });
   }
 };

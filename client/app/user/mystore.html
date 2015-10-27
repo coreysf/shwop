@@ -1,19 +1,16 @@
   <!-- TODO: (1) Research photo file path validation  -->
 
-<div class='scrollable-header'>
-  <nav class='navbar navbar-app navbar-relative-top'>
-    <div class="navbar-header">
-      <strong class="navbar-brand title">Shwop</strong>
-      <div class='btn-group pull-right collapsible'>
-        <a href='#/products' class='btn btn-navbar'>All Products</a>
-        <a href='#/sell' class='btn btn-navbar'>Sell Item</a>
-        <a href='#/mystore' class='btn btn-navbar'>My Store</a>
-        <a href='#/profile' class='btn btn-navbar'>Profile</a>
-        <a ng-click='signout()' class='btn btn-navbar'>Logout</a>
-      </div>
+<nav class='navbar navbar-app navbar-relative-top'>
+  <strong class="navbar-brand-center navbar-brand">Shwop</strong>
+  <div class="btn-group pull-left">
+    <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
+      <i class="fa fa-bars"></i> Menu
     </div>
-  </nav>
-</div>
+  </div>
+  <div class='btn-group pull-right collapsible'>
+    <a ng-click='signout()' class='btn btn-navbar'>Logout</a>
+  </div>
+</nav>
 
 <h1>My Store</h1>
 <div class='scrollable-content'>
